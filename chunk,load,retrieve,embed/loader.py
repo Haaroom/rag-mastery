@@ -1,11 +1,9 @@
-from dataclass import dataclass
 import os 
 from pypdf import PdfReader
 import json
 import requests
 
 
-@dataclass
 class Document:
     page_content: str
     metadata: dict
@@ -86,7 +84,6 @@ class CSVLoader:
 class JSONLoader:
     def __init__(self, file_path: str):
         self.file_path = file_path
-
     def load(self):
         if not self.file_path.endswith(".json"):
             raise ValueError("Only .json files are supported")
